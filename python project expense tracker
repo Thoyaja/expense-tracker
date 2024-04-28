@@ -1,0 +1,83 @@
+class Expense:
+    def __init__(self, amount, description, category):
+        self.amount = amount
+        self.description = description
+        self.category = category
+
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
+        self.categories = {}
+
+    def add_expense(self, expense):
+        """Add a new expense."""
+        self.expenses.append(expense)
+
+    def add_category(self, category):
+        """Add a new expense category."""
+        self.categories[category] = []
+
+    def categorize_expense(self, expense, category):
+        """Assign a category to an expense."""
+        expense.category = category
+
+    def calculate_monthly_summary(self):
+        """Calculate monthly expense summary."""
+       
+
+    def calculate_category_summary(self):
+        """Calculate category-wise expense summary."""
+        
+
+class UserInterface:
+    def __init__(self, expense_tracker):
+        self.expense_tracker = expense_tracker
+
+    def get_user_input(self):
+        """Get user input for adding expenses."""
+        amount = float(input("Enter expense amount: "))
+        description = input("Enter expense description: ")
+        category = input("Enter expense category: ")
+        return Expense(amount, description, category)
+
+    def display_monthly_summary(self):
+        """Display monthly expense summary."""
+       
+
+    def display_category_summary(self):
+        """Display category-wise expense summary."""
+       
+
+    def display_error_message(self, message):
+        """Display error messages."""
+        print("Error:", message)
+
+if __name__ == "__main__":
+    expense_tracker = ExpenseTracker()
+    ui = UserInterface(expense_tracker)
+
+    while True:
+        print("\nExpense Tracker Menu:")
+        print("1. Add Expense")
+        print("2. Add Category")
+        print("3. View Monthly Summary")
+        
+        print("4. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            expense = ui.get_user_input()
+            expense_tracker.add_expense(expense)
+        elif choice == "2":
+            category = input("Enter category name: ")
+            expense_tracker.add_category(category)
+        elif choice == "3":
+            ui.display_monthly_summary()
+        elif choice == "4":
+            
+      
+            print("Exiting...")
+            break
+        else:
+            ui.display_error_message("Invalid choice. Please try again.")
